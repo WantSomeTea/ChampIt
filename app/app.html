@@ -28,6 +28,13 @@
                 </nav>
             </div>
           <div class="pane">
+            <div id="games">
+
+            </div>
+            <pre id="state">
+
+            </pre>
+            <!--
             <form>
               <div class="form-group">
                 <label>Количество команд</label>
@@ -47,23 +54,17 @@
                 <button type="submit" class="btn btn-form btn-primary">OK</button>
               </div>
             </form>
+            -->
           </div>
         </div>
       </div>
     </div>
-    <!-- <div class="container">
-        <h1 id="greet"></h1>
-        <p class="subtitle">
-            Welcome to <a href="http://electron.atom.io" class="js-external-link">Electron</a> app running on this magnificent <strong id="platform-info"></strong> machine.
-        </p>
-        <p class="subtitle">
-            You are in <strong id="env-name"></strong> environment.
-        </p>
-    </div> -->
-
     <!-->In Electron, this is the correct way to include jQuery<-->
+    <script src="./js/Bacon.min.js"></script>
+    <script src="./js/lodash.min.js"></script>
+    <script src="./js/handlebars.min.js"></script>
     <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
-    <script src="./js/jquery.flipster.min.js"></script>
+    <script src="./js/group.js"></script>
     <script src="./js/script.js"></script>
 </body>
 </html>
