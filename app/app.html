@@ -13,58 +13,46 @@
     <script src="app.js"></script>
 </head>
 <body>
-    <div class="window">
-      <div class="window-content">
-        <div class="pane-group">
-          <div class="pane-sm sidebar">
-              <nav class="nav-group">
-                  <h5 class="nav-group-title">Group stage</h5>
-                  <a class="nav-group-item active">
-                    Teams
-                  </a>
-                  <span class="nav-group-item">
-                    Export
-                  </span>
-                </nav>
+  <div class="window">
+    <div class="window-content">
+      <div class="pane-group">
+        <div class="pane-sm sidebar">
+          <nav class="nav-group">
+              <h5 class="nav-group-title">Групповая стадия</h5>
+              <a class="nav-group-item active">
+                <span class="icon icon-users"></span>
+                Команды
+              </a>
+              <span class="nav-group-item">
+                <span class="icon icon-share"></span>
+                Экспорт
+              </span>
+            </nav>
+        </div>
+        <div class="pane">
+          <form>
+            <div class="form-group">
+              <label>Количество команд</label>
+              <input id="form-team-number" class="form-control" type="number" min="1" max="64" step="1" value="1">
             </div>
-          <div class="pane">
-            <div id="games">
-
+            <div class="form-group" id="form-teams">
+              <label>Команда № 1</label>
+              <input class="form-control form-team-name" placeholder="Команда № 1">
             </div>
-            <pre id="state">
-
-            </pre>
-            <!--
-            <form>
-              <div class="form-group">
-                <label>Количество команд</label>
-                <input class="form-control" type="range" min="0" max="32" step="1" value="16" name="teams-number">
-              </div>
-              <div class="form-group">
-                <label>Team</label>
-                <input class="form-control" placeholder="Team">
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> This is a checkbox
-                </label>
-              </div>
-              <div class="form-actions">
-                <button type="submit" class="btn btn-form btn-default">Cancel</button>
-                <button type="submit" class="btn btn-form btn-primary">OK</button>
-              </div>
-            </form>
-            -->
-          </div>
+            <div class="form-group">
+              <label>Команд в группе</label>
+              <input id="form-teams-in-group" class="form-control" type="number" min="1" max="20" step="1" value="1">
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-form btn-primary" id="groupstage">Создать турнир</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <!-->In Electron, this is the correct way to include jQuery<-->
-    <script src="./js/Bacon.min.js"></script>
-    <script src="./js/lodash.min.js"></script>
-    <script src="./js/handlebars.min.js"></script>
-    <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
-    <script src="./js/group.js"></script>
-    <script src="./js/script.js"></script>
+  </div>
+
+  <script>window.$ = window.jQuery = require('./js/jquery.min.js');</script>
+  <script src="./js/script.js"></script>
 </body>
 </html>
