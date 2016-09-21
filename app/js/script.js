@@ -20,9 +20,11 @@ $('button#groupstage').on('click', () => {
 $('input#form-team-number').change(() => {
   var teamsCount = +($('input#form-team-number').val())
 
-  for (var i = 0; i < teamsCount; i+=1) {
-    teamInput += (`<div class="form-group" id="form-teams"><label>Команда № ${i+1}</label><input class="form-control form-team-name" placeholder="Команда № ${i+1}"></div>`)
+  var teamInput = '<div class="form-group" id="form-teams">'
+  for (var i = 0; i < teamsCount; i += 1) {
+    teamInput += (`<label>Команда № ${i+1}</label><input class="form-control form-team-name" placeholder="Команда № ${i+1}">`)
   }
+  teamInput += '</div>'
 
   $('div#form-teams').replaceWith(teamInput)
 })
