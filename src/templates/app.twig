@@ -1,22 +1,8 @@
+{# app.twig #}
+{% extends "_layout/layout.twig" %}
 
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Electron Boilerplate</title>
-
-    <link href="dist/stylesheets/main.css" rel="stylesheet" type="text/css">
-    <!-- <link href="dist/stylesheets/photon.css" rel="stylesheet" type="text/css"> -->
-    <link href="dist/stylesheets/kube.css" rel="stylesheet" type="text/css">
-
-    <script src="helpers/context_menu.js"></script>
-    <script src="helpers/external_links.js"></script>
-
-    <script src="app.js"></script>
-</head>
-<body>
-  <div class="window">
-      <nav class="tabs" data-component="tabs">
+{% block page %}
+<nav class="tabs" data-component="tabs">
     <ul>
         <li class="active"><a href="#tab1">Список</a></li>
         <li><a href="#tab2">Новая группа</a></li>
@@ -75,10 +61,4 @@
         </fieldset>
   </div>
 </div>
-  </div>
-
-  <script>window.$ = window.jQuery = require('./dist/js/jquery.min.js');</script>
-  <script src="./dist/js/kube.js"></script>
-  <script src="./dist/js/script.js"></script>
-</body>
-</html>
+{% endblock %}

@@ -12,6 +12,7 @@ $('button#groupstage').on('click', () => {
   var teamsCount = +($('input#form-team-number').val())
   var teamsInGroup = +($('input#form-teams-in-group').val())
 
+  GroupStage.invalid()
   var group = new GroupStage(teamsCount, { groupSize: teamsInGroup })
   console.log(group)
 })
@@ -19,14 +20,11 @@ $('button#groupstage').on('click', () => {
 $('input#form-team-number').change(() => {
   var teamsCount = +($('input#form-team-number').val())
 
-  var teamInput = '<span id="form-teams">'
+  var teamInput = '<div class="form-group" id="form-teams">'
   for (var i = 0; i < teamsCount; i += 1) {
-    teamInput += (`<div class="form-item">
-      <label>Команда № ${i+1}</label>
-      <input type="text" placeholder="Команда № ${i+1}">
-      </div>`)
+    teamInput += (`<label>Команда № ${i+1}</label><input class="form-control form-team-name" placeholder="Команда № ${i+1}">`)
   }
-  teamInput += '</span>'
+  teamInput += '</div>'
 
   $('div#form-teams').replaceWith(teamInput)
 })
