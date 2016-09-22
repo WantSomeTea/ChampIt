@@ -45,8 +45,10 @@ app.on('ready', function () {
 
   Firebase.Tournament.setTournament(1, 'Championship #1', 'Group', ['Alpha', 'Beta', 'Gamma']).then(() => {
     console.log('Successfullt added tournament')
-    var trn = Firebase.Tournament.getTournament(0)
-    console.log(trn)
+    Firebase.Tournament.getTournament(0).then((value) => {
+      var trn = value.val()
+      console.log(trn)
+    })
   })
 })
 

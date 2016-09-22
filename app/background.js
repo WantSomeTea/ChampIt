@@ -143,14 +143,13 @@ firebase.Tournament = {
     })
   },
   getTournament: (trnID) => {
-    firebase.database().ref('/tournaments/' + trnID).once('value').then((snapshot) => {
-      return snapshot
-    })
+    return firebase.database().ref('/tournaments/' + trnID).once('value')
   }
 }
 
 // Simple wrapper exposing environment variables to rest of the code.
 
+// The variables have been written to `env.json` by the build process.
 var env = jetpack.cwd(__dirname).read('env.json', 'json')
 
 // This is main process of Electron, started as first thing when your
@@ -192,8 +191,10 @@ electron.app.on('ready', function () {
 
   firebase.Tournament.setTournament(1, 'Championship #1', 'Group', ['Alpha', 'Beta', 'Gamma']).then(() => {
     console.log('Successfullt added tournament')
-    var trn = firebase.Tournament.getTournament(0)
-    console.log(trn)
+    firebase.Tournament.getTournament(0).then((value) => {
+      var trn = value.val()
+      console.log(trn)
+    })
   })
 })
 

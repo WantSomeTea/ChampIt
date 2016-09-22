@@ -20,9 +20,7 @@ firebase.Tournament = {
     })
   },
   getTournament: (trnID) => {
-    firebase.database().ref('/tournaments/' + trnID).once('value').then((snapshot) => {
-      return snapshot
-    })
+    return firebase.database().ref('/tournaments/' + trnID).once('value')
   }
 }
 
