@@ -18,7 +18,6 @@ var env = jetpack.cwd(__dirname).read('env.json', 'json')
 // native node.js module
 // native electron module
 // module loaded from npm
-// code authored by you in this project
 console.log('Loaded environment variables:', env)
 
 var app = electron.remote.app
@@ -28,31 +27,16 @@ var appDir = jetpack.cwd(app.getAppPath())
 // here files like it is node.js! Welcome to Electron world :)
 console.log('The author of this app is:', appDir.read('package.json', 'json').author)
 
-// DB part
-var Sequelize = require('sequelize');
+// Initialize Firebase
+var firebase = require('firebase')
 
-// without password and options
-var sequelize = new Sequelize('football_database', null, null, {
-  // sqlite! now!
-  dialect: 'sqlite',
-  storage: 'db/football_database.sqlite'
-})
-
-var Tournament = sequelize.define('tournament', {
-  name: {
-    type: Sequelize.STRING
-  },
-  tournamentType: {
-    type: Sequelize.STRING
-  }
-});
-
-Tournament.sync({force: true}).then(() => {
-  // Table created
-  return Tournament.create({
-    name: 'Championship',
-    tournamentType: 'Group'
-  });
-});
+var config = {
+  apiKey: 'AIzaSyAlEP38rF6K6fz93YNlUPom8zoY2QGi3vE',
+  authDomain: 'ekbfootball-74831.firebaseapp.com',
+  databaseURL: 'https://ekbfootball-74831.firebaseio.com',
+  storageBucket: 'ekbfootball-74831.appspot.com',
+  messagingSenderId: '952184322188'
+}
+firebase.initializeApp(config)
 }());
 //# sourceMappingURL=app.js.map
