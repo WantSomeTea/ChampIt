@@ -15,15 +15,3 @@ var appDir = jetpack.cwd(app.getAppPath())
 // Holy crap! This is browser window with HTML and stuff, but I can read
 // here files like it is node.js! Welcome to Electron world :)
 console.log('The author of this app is:', appDir.read('package.json', 'json').author)
-
-// Initialize Firebase
-var firebase = require('firebase')
-
-var config = {
-  apiKey: 'AIzaSyAlEP38rF6K6fz93YNlUPom8zoY2QGi3vE',
-  authDomain: 'ekbfootball-74831.firebaseapp.com',
-  databaseURL: 'https://ekbfootball-74831.firebaseio.com',
-  storageBucket: 'ekbfootball-74831.appspot.com',
-  messagingSenderId: '952184322188'
-}
-firebase.initializeApp(config)

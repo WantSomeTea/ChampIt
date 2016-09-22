@@ -122,9 +122,35 @@ function createWindow (name, options) {
     return win;
 }
 
+// Initialize Firebase
+var firebase = require('firebase')
+
+var config = {
+  apiKey: 'AIzaSyAlEP38rF6K6fz93YNlUPom8zoY2QGi3vE',
+  authDomain: 'ekbfootball-74831.firebaseapp.com',
+  databaseURL: 'https://ekbfootball-74831.firebaseio.com',
+  storageBucket: 'ekbfootball-74831.appspot.com',
+  messagingSenderId: '952184322188'
+}
+firebase.initializeApp(config)
+
+firebase.Tournament = {
+  setTournament: (trnID, name, type, teams) => {
+    return firebase.database().ref('tournaments/' + trnID).set({
+      name: name,
+      type: type,
+      teams: teams
+    })
+  },
+  getTournament: (trnID) => {
+    firebase.database().ref('/tournaments/' + trnID).once('value').then((snapshot) => {
+      return snapshot
+    })
+  }
+}
+
 // Simple wrapper exposing environment variables to rest of the code.
 
-// The variables have been written to `env.json` by the build process.
 var env = jetpack.cwd(__dirname).read('env.json', 'json')
 
 // This is main process of Electron, started as first thing when your
@@ -163,6 +189,12 @@ electron.app.on('ready', function () {
   if (env.name === 'development') {
     mainWindow.openDevTools()
   }
+
+  firebase.Tournament.setTournament(1, 'Championship #1', 'Group', ['Alpha', 'Beta', 'Gamma']).then(() => {
+    console.log('Successfullt added tournament')
+    var trn = firebase.Tournament.getTournament(0)
+    console.log(trn)
+  })
 })
 
 electron.app.on('window-all-closed', function () {

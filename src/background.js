@@ -7,12 +7,11 @@ import { app, Menu } from 'electron'
 import { devMenuTemplate } from './menu/dev_menu_template'
 import { editMenuTemplate } from './menu/edit_menu_template'
 import createWindow from './helpers/window'
+import Firebase from './helpers/firebase'
 
 // Special module holding environment variables which you declared
 // in config/env_xxx.json file.
 import env from './env'
-
-var mainWindow
 
 var setApplicationMenu = function () {
   var menus = [editMenuTemplate]
@@ -43,6 +42,12 @@ app.on('ready', function () {
   if (env.name === 'development') {
     mainWindow.openDevTools()
   }
+
+  Firebase.Tournament.setTournament(1, 'Championship #1', 'Group', ['Alpha', 'Beta', 'Gamma']).then(() => {
+    console.log('Successfullt added tournament')
+    var trn = Firebase.Tournament.getTournament(0)
+    console.log(trn)
+  })
 })
 
 app.on('window-all-closed', function () {
