@@ -24,7 +24,7 @@ gulp.task('bundle', function () {
 gulp.task('sass', function () {
     return gulp.src(srcDir.path('stylesheets/*.scss'))
         .pipe(plumber())
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(destDir.path('dist/stylesheets')));
 });
 

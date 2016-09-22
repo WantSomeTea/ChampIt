@@ -1,6 +1,6 @@
 // Breakpoints
-$breakpoint-small: 768px !default;
-$breakpoint-medium: 1024px !default;
+$breakpoint-small: 400px !default;
+$breakpoint-medium: 600px !default;
 $breakpoint-large: 1200px !default;
 
 // FontFamily
@@ -63,16 +63,16 @@ $paragraph-margin-bottom: 16px !default;
 
 // Color
 $body-text-color: #333 !default;
-$heading-text-color: #000 !default;
+$heading-text-color: #111 !default;
 $samp-text-color: #fff !default;
 $input-text-color: #333 !default;
 $input-append-text-color: #555 !default;
 
 // Color States
 $color-default: #f4f4f4 !default;
-$color-primary: #3c74d9 !default;
+$color-primary: #d93c45 !default;
 $color-success: #60ae4d !default;
-$color-error:   #f34248 !default;
+$color-error:   #bf1218 !default;
 $color-warning: #fed443 !default;
 
 // Links

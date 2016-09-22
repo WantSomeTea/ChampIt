@@ -16,3 +16,30 @@ var appDir = jetpack.cwd(app.getAppPath())
 // Holy crap! This is browser window with HTML and stuff, but I can read
 // here files like it is node.js! Welcome to Electron world :)
 console.log('The author of this app is:', appDir.read('package.json', 'json').author)
+
+// DB part
+var Sequelize = require('sequelize');
+
+// without password and options
+var sequelize = new Sequelize('football_database', null, null, {
+  // sqlite! now!
+  dialect: 'sqlite',
+  storage: 'db/football_database.sqlite'
+})
+
+var Tournament = sequelize.define('tournament', {
+  name: {
+    type: Sequelize.STRING
+  },
+  tournamentType: {
+    type: Sequelize.STRING
+  }
+});
+
+Tournament.sync({force: true}).then(() => {
+  // Table created
+  return Tournament.create({
+    name: 'Championship',
+    tournamentType: 'Group'
+  });
+});

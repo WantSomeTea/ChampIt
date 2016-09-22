@@ -10,55 +10,11 @@
 </nav>
 <div id="main">
   <div id="tab1">
-    <table>
-      <thead>
-          <tr>
-              <th>Номер</th>
-              <th>Название</th>
-              <th>Число команд</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>1</td>
-              <td>Чемпионат города</td>
-              <td>16</td>
-          </tr>
-      </tbody>
-  </table>
+    {% include "_tabs/currentstate.twig" %}
+
   </div>
   <div id="tab2">
-    <form>
-      <fieldset>
-        <legend>Новая группа</legend>
-        <div class="row">
-          <div class="col col-6">
-            <div class="form-item">
-                <label>Число команд</label>
-                <input type="number" id="form-team-number" min="1" max="100" step="1" value="1">
-            </div>
-          </div>
-          <div class="col col-6">
-              <div class="form-item">
-                <div class="form-item">
-                  <label>Команд в группе</label>
-                  <input id="form-teams-in-group" type="number" min="1" max="30" step="1" value="1">
-                </div>
-              </div>
-          </div>
-      </div>
-      
-      <span id="form-teams">
-        <div class="form-item">
-          <label>Команда № 1</label>
-          <input type="text" placeholder="Команда № 1">
-        </div>
-      </span>
-      <div class="form-item">
-        <button type="button" class="button primary" id="groupstage">Создать турнир</button>
-      </div>
-    </form>
-        </fieldset>
+    {% include "_tabs/newgroup.twig" %}
   </div>
 </div>
 {% endblock %}
