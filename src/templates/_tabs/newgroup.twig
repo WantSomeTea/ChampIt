@@ -19,11 +19,12 @@
           <div class="form-item">
             <div class="form-item">
               <label>Команд в группе</label>
-              <input id="form-teams-in-group" type="number" min="1" max="30" step="1" value="4">
+              <input disabled id="form-teams-in-group" type="number" min="1" max="30" step="1" value="4">
             </div>
           </div>
       </div>
-  </div>
+    </div>
+    <hr />
     <span id="form-teams">
     <div class="row blocks">
       {% for i in 1..8 %}
@@ -34,8 +35,8 @@
       {% endfor %}
     </div>
     </span>
-  <div class="form-item">
-    <button type="button" class="button primary" id="group-stage">Создать группы</button>
-  </div>
+    <div class="form-item">
+      <button type="button" class="button primary width-100" id="group-stage">Создать группы</button>
+    </div>
   </fieldset>
 </form>

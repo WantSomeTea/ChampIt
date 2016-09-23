@@ -24,21 +24,8 @@
 </nav>
 <div id="main">
   <div id="tab1">
-    <table>
-  <thead>
-      <tr>
-          <th>Номер</th>
-          <th>Название</th>
-          <th>Число команд</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>Чемпионат города</td>
-          <td>16</td>
-      </tr>
-  </tbody>
+    <table id="current-tournament">
+
 </table>
   </div>
   <div id="tab2">
@@ -69,11 +56,12 @@
           <div class="form-item">
             <div class="form-item">
               <label>Команд в группе</label>
-              <input id="form-teams-in-group" type="number" min="1" max="30" step="1" value="4">
+              <input disabled id="form-teams-in-group" type="number" min="1" max="30" step="1" value="4">
             </div>
           </div>
       </div>
-  </div>
+    </div>
+    <hr />
     <span id="form-teams">
     <div class="row blocks">
               <div class="form-item col col-6">
@@ -110,9 +98,9 @@
         </div>
           </div>
     </span>
-  <div class="form-item">
-    <button type="button" class="button primary" id="group-stage">Создать группы</button>
-  </div>
+    <div class="form-item">
+      <button type="button" class="button primary width-100" id="group-stage">Создать группы</button>
+    </div>
   </fieldset>
 </form>
   </div>

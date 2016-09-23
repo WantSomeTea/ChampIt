@@ -5,6 +5,8 @@ var twig = require('gulp-twig')
 var sass = require('gulp-sass')
 var watch = require('gulp-watch')
 var batch = require('gulp-batch')
+var concat = require('gulp-concat')
+var uglify = require('gulp-uglify')
 var plumber = require('gulp-plumber')
 var jetpack = require('fs-jetpack')
 var bundle = require('./bundle')
@@ -19,6 +21,13 @@ gulp.task('bundle', function () {
     bundle(srcDir.path('background.js'), destDir.path('background.js')),
     bundle(srcDir.path('app.js'), destDir.path('app.js'))
   ])
+})
+
+gulp.task('js', function () {
+  return gulp.src(srcDir.path('js/*.js'))
+    .pipe(concat('script.js'))
+    // .pipe(uglify())
+    .pipe(gulp.dest(destDir.path('dist/js')))
 })
 
 gulp.task('sass', function () {
@@ -52,6 +61,9 @@ gulp.task('watch', function () {
   watch('src/**/*.js', batch(function (events, done) {
     gulp.start('bundle', beepOnError(done))
   }))
+  watch('src/js/*.js', batch(function (events, done) {
+    gulp.start('js', beepOnError(done))
+  }))
   watch('src/**/*.twig', batch(function (events, done) {
     gulp.start('templates', beepOnError(done))
   }))
@@ -60,4 +72,4 @@ gulp.task('watch', function () {
   }))
 })
 
-gulp.task('build', ['bundle', 'sass', 'templates', 'environment'])
+gulp.task('build', ['bundle', 'js', 'sass', 'templates', 'environment'])

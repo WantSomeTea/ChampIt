@@ -153,8 +153,6 @@ var env = jetpack.cwd(__dirname).read('env.json', 'json')
 // It doesn't have any windows which you can see on screen, but we can open
 // window from here.
 
-// Special module holding environment variables which you declared
-// in config/env_xxx.json file.
 var setApplicationMenu = function () {
   var menus = [editMenuTemplate]
   if (env.name !== 'production') {
