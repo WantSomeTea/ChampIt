@@ -4,6 +4,10 @@
   {% include '../_components/alert.twig' with {id: "form-info", type: "info", message: "Message!"} %}
   <fieldset>
     <legend>Новая группа</legend>
+    <div class="form-item">
+      <label>Название <span class="desc">Короткое название турнира</span></label>
+      <input id="form-tournament-name" type="text" placeholder="Чемпионат/Турнир ...">
+    </div>
     <div class="row">
       <div class="col col-6">
         <div class="form-item">
@@ -25,7 +29,7 @@
       {% for i in 1..8 %}
         <div class="form-item col col-6">
           <label>Команда № {{ i }}</label>
-          <input type="text" placeholder="Команда № {{ i }}">
+          <input  class="form-team-name" type="text" placeholder="Команда № {{ i }}">
         </div>
       {% endfor %}
     </div>

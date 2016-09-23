@@ -42,14 +42,6 @@ app.on('ready', function () {
   if (env.name === 'development') {
     mainWindow.openDevTools()
   }
-
-  Firebase.Tournament.setTournament(1, 'Championship #1', 'Group', ['Alpha', 'Beta', 'Gamma']).then(() => {
-    console.log('Successfullt added tournament')
-    Firebase.Tournament.getTournament(0).then((value) => {
-      var trn = value.val()
-      console.log(trn)
-    })
-  })
 })
 
 app.on('window-all-closed', function () {
