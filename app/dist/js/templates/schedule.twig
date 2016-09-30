@@ -1,0 +1,16 @@
+<table id="schedule">
+  <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Домашняя команда</th>
+      <th>Гостевая команда</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for match in matches %}
+      <td class="col col-2">{{ loop.index }}</td>
+      <td class="col col-5">{{ match.p[0] }}</td>
+      <td class="col col-5">{{ match.p[1] }}</td>
+    {% endfor %}
+  </tbody>
+</table>

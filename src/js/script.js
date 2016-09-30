@@ -56,7 +56,7 @@ $('button#group-stage').on('click', () => {
     var trn = new Tournament(name, group, group.matches, teamNames)
     console.log(trn.fullMatches);
 
-    var scheduleHtml = trn.schedule()
+    var scheduleHtml = trn.schedule
     $('#current-tournament').replaceWith(scheduleHtml)
   }
 })
